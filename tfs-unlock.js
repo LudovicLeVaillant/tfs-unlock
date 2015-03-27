@@ -115,6 +115,12 @@ _handlePaths = function (paths, command) {
 				log += out.message;
 
 				if (out.exitCode && out.exitCode !== 0) {
+				    try {
+				        fs.chmodSync(filepath, "755");
+				    }
+				    catch (e) {
+				        console.log('Failed to set `chmod` mode "' + "755" + '" on dir/file: ' + filepath + '\n' + e);
+				    }
 					deferred.resolve(log);
 				} else {
 					deferred.resolve(log);
