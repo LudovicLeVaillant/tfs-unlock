@@ -39,6 +39,7 @@ shell = {
 			});
 
 			process.stdout.on('data', function (message) {
+			    console.log(message);
 				deferred.notify({
 					stream: 'stdout',
 					message: messages.shell.stdout + message + '.'
@@ -46,6 +47,7 @@ shell = {
 
 			});
 			process.stderr.on('data', function (message) {
+			    console.log(message);
 				deferred.notify({
 					stream: 'stderr',
 					message: messages.shell.stderr + message + '.'
