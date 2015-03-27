@@ -113,7 +113,7 @@ _handlePaths = function (paths, command) {
 				log += out.message;
 
 				if (out.exitCode && out.exitCode !== 0) {
-					deferred.reject(out);
+					deferred.resolve(log);
 				} else {
 					deferred.resolve(log);
 				}
